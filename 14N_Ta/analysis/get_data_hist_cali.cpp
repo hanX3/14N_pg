@@ -12,8 +12,8 @@
 // #define FILEOUT "./target1_hist_trapz_cali.txt"
 
 #define FILEPATH "../../data/target2/281keV/"
-#define FILENAME "target1_281keV.root"
-#define FILEOUT "./target1_281keV_hist_trapz_cali.txt"
+#define FILENAME "target2_281keV.root"
+#define FILEOUT "./target2_281keV_hist_trapz_cali.txt"
 
 
 #define p0 0.023171
