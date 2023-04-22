@@ -1,3 +1,2 @@
-run1.mac  质子入射
-run2.mac  电子入射
-run3.mac  伽马入射
+# record
+This simulation is designed to emit only gamma rays in the 4π direction. Its purpose is to determine the number of specific energy levels of 15O in the layout when a certain count is obtained with the HPGe detector, in order to obtain the branching ratio of 15O energy levels.
