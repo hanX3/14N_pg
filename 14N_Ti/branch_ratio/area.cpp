@@ -38,22 +38,20 @@ void area()
   h->SetLineColor(1);
   h->Draw();
 
-  Double_t peaks[3] = {5181., 6172., 6792.};
+  Double_t peaks[4] = {5181., 6172., 6792., 7556.};
 
-  for(int i=0;i<3;i++){
+  for(int i=0;i<4;i++){
     for(int j=0;j<3;j++){
       TF1 *tf_back = new TF1("tf_back", background, (peaks[i]-511.*j)*0.92, (peaks[i]-511.*j)*1.08, 2);
       tf_back->SetParameter(0, 10);
       tf_back->SetParameter(1, 1);
       h->Fit("tf_back", "R0Q");
-      TF1 *tf = new TF1("tf", fitFunction, (peaks[i]-511.*j)*0.998, (peaks[i]-511.*j)*1.002, 5);
+      TF1 *tf = new TF1("tf", fitFunction, (peaks[i]-511.*j)*0.99, (peaks[i]-511.*j)*1.01, 5);
       tf->FixParameter(0, tf_back->GetParameter(0));
       tf->FixParameter(1, tf_back->GetParameter(1));
       int bin = (int)((peaks[i]-511.*j)-p0)/p1;
-      // cout << "bin " << bin << endl;
-      // cout << "peak " << peaks[i]-511.*j << endl;
-
-      tf->SetParameter(2, h->GetBinContent(bin));
+      cout << "bin " << bin << endl;
+      tf->SetParameter(2, 200);
       tf->SetParameter(3, peaks[i]-511.*j);
       tf->SetParameter(4, 3.3);
       h->Fit("tf", "R0Q");
@@ -66,8 +64,8 @@ void area()
       //
       int bin_min = (int)((tf->GetParameter(3)-2.5*tf->GetParameter(4)-p0)/p1+0.5);
       int bin_max = (int)((tf->GetParameter(3)+2.5*tf->GetParameter(4)-p0)/p1+0.5);
-      // cout << "bin min " << bin_min << endl;
-      // cout << "bin max " << bin_max << endl;
+      // cout << "bin min " << bin_min << " " << h->GetBinCenter(bin_min) << endl;
+      // cout << "bin max " << bin_max << " " << h->GetBinCenter(bin_max) << endl;
 
       double s = 0.;
 
@@ -81,4 +79,7 @@ void area()
       cout << "peak " << tf->GetParameter(3) << "  area " << s << endl;
     }
   }
+
+
+
 }
