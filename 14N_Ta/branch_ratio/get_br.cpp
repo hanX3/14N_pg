@@ -1,7 +1,7 @@
 
 void get_br()
 {
-  double beam_on[5] = {1498.9, 9881.9, 24053.9, 0, 8004.1};
+  double beam_on[5] = {289.65, 1794.85, 4533.68, 0, 1466.87};
   
   double sum = 0;
   for(int i=0;i<5;i++) sum += beam_on[i];
