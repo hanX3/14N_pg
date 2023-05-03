@@ -1,0 +1,11 @@
+/run/initialize
+/tracking/verbose 0
+
+/run/beamOn 6000000
+/run/beamOn 7000000
+/run/beamOn 8000000
+/run/beamOn 9000000
+/run/beamOn 10000000
+/run/beamOn 11000000
+/run/beamOn 12000000
+/run/beamOn 13000000
