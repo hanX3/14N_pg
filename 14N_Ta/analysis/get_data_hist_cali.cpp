@@ -11,7 +11,7 @@
 // #define FILENAME "target1_ana.root"
 // #define FILEOUT "./target1_hist_trapz_cali.txt"
 
-#define FILEPATH "../../data/target2/281keV/"
+#define FILEPATH "../../../data/14N_Ta/target2/281keV/"
 #define FILENAME "target2_281keV.root"
 #define FILEOUT "./target2_281keV_hist_trapz_cali.txt"
 
