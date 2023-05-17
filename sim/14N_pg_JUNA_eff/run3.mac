@@ -1,0 +1,76 @@
+/run/initialize
+/tracking/verbose 0
+
+
+/gun/energy 1000 keV
+/run/beamOn 10000000
+
+/gun/energy 1500 keV
+/run/beamOn 10000000
+
+/gun/energy 2000 keV
+/run/beamOn 10000000
+
+/gun/energy 2500 keV
+/run/beamOn 10000000
+
+/gun/energy 3000 keV
+/run/beamOn 10000000
+
+/gun/energy 3500 keV
+/run/beamOn 10000000
+
+/gun/energy 4000 keV
+/run/beamOn 10000000
+
+/gun/energy 4500 keV
+/run/beamOn 10000000
+
+/gun/energy 5000 keV
+/run/beamOn 10000000
+
+/gun/energy 5500 keV
+/run/beamOn 10000000
+
+/gun/energy 6000 keV
+/run/beamOn 10000000
+
+/gun/energy 6500 keV
+/run/beamOn 10000000
+
+/gun/energy 7000 keV
+/run/beamOn 10000000
+
+/gun/energy 7500 keV
+/run/beamOn 10000000
+
+/gun/energy 8000 keV
+/run/beamOn 10000000
+
+/gun/energy 8500 keV
+/run/beamOn 10000000
+
+/gun/energy 9000 keV
+/run/beamOn 10000000
+
+/gun/energy 9500 keV
+/run/beamOn 10000000
+
+/gun/energy 10000 keV
+/run/beamOn 10000000
+
+/gun/energy 10500 keV
+/run/beamOn 10000000
+
+/gun/energy 11000 keV
+/run/beamOn 10000000
+
+/gun/energy 11500 keV
+/run/beamOn 10000000
+
+/gun/energy 12000 keV
+/run/beamOn 10000000
+
+/gun/energy 12500 keV
+/run/beamOn 10000000
+
