@@ -1,3 +1,5 @@
-run1.mac  质子入射
-run2.mac  电子入射
-run3.mac  伽马入射
+#record
+
+- add 14Npg15O reaction class
+- set branch ratio 100\% for level 0, 5180, 5240, 6172, 6792, 6859 keV
+- use simulation spectrum for TFractionFit 
