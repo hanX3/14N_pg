@@ -1,0 +1,5 @@
+# record
+This simulation is designed to emit two gamma rays in the 4π direction.
+Attempting to consider the summing effect in the simulation and obtain MC histograms for different energy levels.
+
+using G4GeneralParticleSource class replacing the original G4ParticleGun.
