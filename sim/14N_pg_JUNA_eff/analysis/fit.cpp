@@ -1,8 +1,8 @@
 
-void fit()
+void fit(TString filename)
 {
   ifstream fi;
-  fi.open(TString::Format("area_energy.txt"));
+  fi.open(filename.Data());
   if(!fi){
     cout << "can not open the file" << endl;
     return;
