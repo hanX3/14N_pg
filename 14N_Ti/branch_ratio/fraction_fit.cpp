@@ -1,5 +1,5 @@
 
-void test()
+void fraction_fit()
 {
   // Example of TFractionFitter class usage
   // 1 Dimension only, x is an angle fron 0 to pi
