@@ -2,8 +2,7 @@
 #define N14pO15_H
 
 #include "G4HadronicInteraction.hh"
-
-#define NLEVELS 6
+#include "Constants.hh"
 
 //
 class N14pgO15: public G4HadronicInteraction

@@ -133,22 +133,11 @@ G4HadFinalState *N14pgO15::ApplyYourself(const G4HadProjectile &projectile, G4Nu
 //
 void N14pgO15::SetLevelsO15()
 {
-  levelsO15[0] = 0.;
-  levelsO15[1] = 5.180 *MeV;
-  levelsO15[2] = 5.240 *MeV;
-  levelsO15[3] = 6.172 *MeV;
-  levelsO15[4] = 6.791 *MeV;
-  levelsO15[5] = 6.859 *MeV;
+  for(int i=0;i<NLEVELS;i++){
+    levelsO15[i] = LevelsO15[i];
+    levelsBranchRatioO15[i] = LevelsBranchRatioO15[i];
+  }
 
-  levelsBranchRatioO15[0] = 1.;
-  levelsBranchRatioO15[1] = 0.;
-  levelsBranchRatioO15[2] = 0.;
-  levelsBranchRatioO15[3] = 0.;
-  levelsBranchRatioO15[4] = 0.;
-  levelsBranchRatioO15[5] = 0.;
-
-  levelsBranchRatioO15Add[0] = levelsBranchRatioO15[0];
-  levelsBranchRatioO15Add[1] = levelsBranchRatioO15[0]+levelsBranchRatioO15[1];
   for(int i=0;i<NLEVELS;i++){
     levelsBranchRatioO15Add[i] = 0;
     for(int j=0;j<i+1;j++) levelsBranchRatioO15Add[i] += levelsBranchRatioO15[j];

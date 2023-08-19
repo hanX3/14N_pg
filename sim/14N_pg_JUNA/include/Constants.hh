@@ -78,11 +78,10 @@ constexpr G4double BeamAngle = 55.;
 constexpr G4double BeamSize = 5 *mm;//r
 constexpr G4double ParticleEnergy = 278. *keV;
 
-//resolution
-constexpr G4double Energy1 = 6792.;
-constexpr G4double Sigma1 = 3.2;
-constexpr G4double Energy2 = 6172;
-constexpr G4double Sigma2 = 3.0;
+//level information
+constexpr G4int NLEVELS = 6;
+constexpr G4double LevelsO15[NLEVELS] = {7.556 *MeV, 6.859 *MeV, 6.792 *MeV, 6.172 *MeV, 5.240 *MeV, 5.180 *MeV};
+constexpr G4double LevelsBranchRatioO15[NLEVELS] = {0., 0., 0., 0., 0., 0.};
 
 //step limit
 constexpr G4double MaxStepLimit = 100 *nm; 

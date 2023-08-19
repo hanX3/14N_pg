@@ -20,6 +20,7 @@ public:
   RootIO(G4int saveFlag);
   ~RootIO();
 
+  void OpenEnergyFile(G4long n);
   void OpenEnergyFile(G4String pn, G4double e, G4long n);
   void CloseEnergyFile();
   void FillEnergyTree(G4double e0, G4double e1, G4double e2, G4double t);

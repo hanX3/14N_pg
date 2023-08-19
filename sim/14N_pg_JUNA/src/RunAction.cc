@@ -51,8 +51,7 @@ void RunAction::BeginOfRunAction(const G4Run *run)
 
   //  creat RootIO file
   G4RunManager::GetRunManager()->SetRandomNumberStore(false);
-  rootIO->OpenEnergyFile(particleName, energy, beamOnNum);
-  // rootIO->OpenHitFile();
+  rootIO->OpenEnergyFile(beamOnNum);
 
   int runID = run->GetRunID();
   timer->Start();
