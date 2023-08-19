@@ -1,6 +1,6 @@
 {
   const Int_t N = 6;
-  Int_t energy[N] = {7556, 6859, 6792, 6172, 5240, 5280};
+  Int_t energy[N] = {7556, 6859, 6792, 6172, 5240, 5180};
   double sigma = 2.0;
 
   TString counts1_str = "50M";
