@@ -37,22 +37,28 @@ void RunAction::BeginOfRunAction(const G4Run *run)
   //inform the runManager to save random number seed
   G4RunManager::GetRunManager()->SetRandomNumberStore(false);
 
+  const PrimaryGeneratorAction *generatorAction = static_cast<const PrimaryGeneratorAction*>(G4RunManager::GetRunManager()->GetUserPrimaryGeneratorAction());
+  G4String particleName;
+  G4double particleEnergy;
+
+  const G4ParticleDefinition *particle = generatorAction->GetParticleGun()->GetParticleDefinition();
+  particleName = particle->GetParticleName();
+
+  const G4ParticleGun *particleGun = generatorAction->GetParticleGun();
+  particleEnergy = particleGun->GetParticleEnergy();
+  particleEnergy /= keV;
+
+  // G4cout << "particleName " << particleName << G4endl;
+  // G4cout << "particleEnergy " << particleEnergy << G4endl;
+
   //
-  G4ParticleDefinition *particle =  priGen->GetParticleGun()->GetParticleDefinition();
-  G4String particleName = particle->GetParticleName();
-  G4cout << "particleName " << particleName << G4endl;
-
-  G4double energy = priGen->GetParticleGun()->GetParticleEnergy();
-  energy /= keV;
-  G4cout << "energy " << energy << G4endl;
-
   G4long beamOnNum = run->GetNumberOfEventToBeProcessed();
   G4cout << "beamOnNum " << beamOnNum << G4endl;
 
   //  creat RootIO file
   G4RunManager::GetRunManager()->SetRandomNumberStore(false);
-  rootIO->OpenEnergyFile(particleName, energy, beamOnNum);
-  // rootIO->OpenHitFile();
+  // rootIO->OpenEnergyFile(beamOnNum);
+  rootIO->OpenEnergyFile(particleName, particleEnergy, beamOnNum);
 
   int runID = run->GetRunID();
   timer->Start();

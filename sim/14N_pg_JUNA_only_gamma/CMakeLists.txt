@@ -64,7 +64,8 @@ set(EXAMPLEB2A_SCRIPTS
   gui.mac
   init_vis.mac
   vis.mac
-  run_7556keV.mac
+  run2.mac
+  run3.mac
   )
 
 foreach(_script ${EXAMPLEB2A_SCRIPTS})

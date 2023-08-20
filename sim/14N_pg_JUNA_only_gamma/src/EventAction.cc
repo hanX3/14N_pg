@@ -48,7 +48,6 @@ void EventAction::EndOfEventAction(const G4Event* event)
     erg[i] = (*hcge)[i]->GetEdep();
     erg[i] /= keV;
 
-    erg[i] = TMath::Abs(G4RandGauss::shoot(erg[i], (erg[i]-Energy2)*(Sigma1-Sigma2)/(Energy1-Energy2)+Sigma2));
   }
 
   if(erg[0]>0 || erg[1]>0 || erg[2]>0){
@@ -57,7 +56,7 @@ void EventAction::EndOfEventAction(const G4Event* event)
 
   // periodic printing
   G4int eventID = event->GetEventID();
-  if ( eventID < 10 || eventID % 100000 == 0) {
+  if ( eventID < 10 || eventID % 1000000 == 0) {
     G4cout << ">>> Event: " << eventID  << G4endl;
   }
 }

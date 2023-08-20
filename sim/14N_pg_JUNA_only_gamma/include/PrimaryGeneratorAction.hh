@@ -15,7 +15,7 @@ public:
 
   virtual void GeneratePrimaries(G4Event* );
 
-  G4ParticleGun* GetParticleGun() {return fParticleGun;}
+  const G4ParticleGun* GetParticleGun() const {return fParticleGun;}
 
   // Set methods
   void SetRandomFlag(G4bool );

@@ -73,6 +73,41 @@ RootIO::~RootIO()
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+void RootIO::OpenEnergyFile(G4long n)
+{
+  if(save){
+    time_t t;
+    struct tm* tt;
+    t = time(0);
+    tt = localtime(&t);
+    char nfdate[1024];
+    sprintf(nfdate, "%d%02d%02d_%02dh%02dm%02ds", tt->tm_year+1900, tt->tm_mon+1, tt->tm_mday, tt->tm_hour, tt->tm_min, tt->tm_sec);
+    std::stringstream ss;
+    ss.str("");
+
+    //energy file
+    if(n<1000) ss << "../data/" << nfdate << "_" << n << ".root";
+    else ss << "../data/" << nfdate << "_" << n/1000 << "k.root";
+    
+    G4cout << "energy file " << ss.str() << G4endl;
+    energyFile = new TFile(ss.str().c_str(), "RECREATE");
+    if(!energyFile){
+      G4cout << " RootIO::book :" << " problem creating the ROOT TFile!!!" << G4endl;
+      return ;
+    }
+    energyTree = new TTree("tree", "energy simulation data");
+    energyTree->Branch("energy0", &energy0, "energy0/D");
+    energyTree->Branch("energy1", &energy1, "energy1/D");
+    energyTree->Branch("energy2", &energy2, "energy2/D");
+    energyTree->Branch("theta", &theta, "theta/D");
+    if(!energyTree){
+      G4cout << "\n can't create tree" << G4endl;
+    }
+    G4cout << "\n----> Tree file is opened in " << ss.str() << G4endl;
+  }
+}
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 void RootIO::OpenEnergyFile(G4String pn, G4double e, G4long n)
 {
   if(save){

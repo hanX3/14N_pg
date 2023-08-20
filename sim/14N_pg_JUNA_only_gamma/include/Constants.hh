@@ -37,7 +37,7 @@ constexpr G4double CoolingSupportThicknessCut = 3.25 *mm;
 constexpr G4double CoolingSupportPosDis = TargetThickness + 2.*TargetBackThickness + 2.*(FlangeThickness-FlangeThicknessCut) + CoolingSupportThickness;
 
 //Ge
-constexpr G4double TargetGeDis = 140. * mm;
+constexpr G4double TargetGeDis = 60. * mm;
 constexpr G4double GeR  = 46.7 * mm;
 constexpr G4double GeHeight  = 54.5 * mm;
 constexpr G4double GePosDis = GeHeight + TargetGeDis + TargetThickness + 2.*TargetBackThickness;
@@ -76,13 +76,7 @@ constexpr G4double Surround2Dis = GePosDis - GeHeight + Surround2Length - 2.*Fac
 //beam
 constexpr G4double BeamAngle = 0.;
 constexpr G4double BeamSize = 5 *mm;//r
-constexpr G4double ParticleEnergy = 5181. *keV;
-
-//resolution
-constexpr G4double Energy1 = 1764.5;
-constexpr G4double Sigma1 = 1.276;
-constexpr G4double Energy2 = 2204.2;
-constexpr G4double Sigma2 = 1.41;
+constexpr G4double ParticleEnergy = 7556. *keV;
 
 //step limit
 constexpr G4double MaxStepLimit = 10 *um;
