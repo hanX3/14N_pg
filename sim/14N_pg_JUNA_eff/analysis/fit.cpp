@@ -58,6 +58,15 @@ void fit(TString filename)
   double tf1_p1 = tf1_pol2->GetParameter(1);
   double tf1_p2 = tf1_pol2->GetParameter(2);
 
+  //
+  TF1 *tf1_eff = new TF1("tf1_eff", "TMath::Exp([0]+[1]*TMath::Log(x)+[2]*TMath::Log(x)*TMath::Log(x))", 500, 13000);
+  tf1_eff->SetParameter(0, tf1_p0);
+  tf1_eff->SetParameter(1, tf1_p1);
+  tf1_eff->SetParameter(2, tf1_p2);
+
+  cc1->cd();
+  tf1_eff->Draw("same");
+
   // eff_t
   auto cc3 = new TCanvas();
   cc3->cd();
@@ -72,6 +81,15 @@ void fit(TString filename)
   double tf2_p1 = tf2_pol2->GetParameter(1);
   double tf2_p2 = tf2_pol2->GetParameter(2);
 
+  //
+  TF1 *tf1_eff_t = new TF1("tf1_eff_t", "TMath::Exp([0]+[1]*TMath::Log(x)+[2]*TMath::Log(x)*TMath::Log(x))", 1000, 13000);
+  tf1_eff_t->SetParameter(0, tf2_p0);
+  tf1_eff_t->SetParameter(1, tf2_p1);
+  tf1_eff_t->SetParameter(2, tf2_p2);
+
+  cc3->cd();
+  tf1_eff_t->Draw("same");
+
   cout << "pol2 p0 " << tf1_p0 << endl;
   cout << "pol2 p1 " << tf1_p1 << endl;
   cout << "pol2 p2 " << tf1_p2 << endl;
@@ -84,8 +102,8 @@ void fit(TString filename)
   // cout << "eff 7556 keV" << eff << endl;
 
   double ee[6] = {7556, 6859, 6792, 6172, 5240, 5181};
-  // double bb[6] = {1.5, 0.14, 23.0, 58.3, 0.22, 16.9}; //2016Daigle
-  double bb[6] = {1.46524, 0., 23.2531, 58.5047, 0., 16.8328};
+  double bb[6] = {1.5, 0.14, 23.0, 58.3, 0.22, 16.9}; //2016Daigle
+  // double bb[6] = {1.46524, 0., 23.2531, 58.5047, 0., 16.8328};
 
   double y1[6];
   double y2[6];
@@ -122,4 +140,9 @@ void fit(TString filename)
     fo2 << ee[i] << " " << TMath::Exp(tf1_pol2->Eval(TMath::Log(ee[i]))) << endl;
   }
   fo2.close();
+
+  //
+  TGraph *gr_norm =  new TGraph(6, ee, y2);
+  cc1->cd();
+  gr_norm->Draw("AP* same");
 }
