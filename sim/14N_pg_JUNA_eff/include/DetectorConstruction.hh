@@ -7,6 +7,9 @@
 #include "G4PropagatorInField.hh"
 #include "tls.hh"
 
+// #include "Constants.hh"
+
+class Constants;
 class DetectorMessenger;
 class G4VPhysicalVolume;
 class G4LogicalVolume;

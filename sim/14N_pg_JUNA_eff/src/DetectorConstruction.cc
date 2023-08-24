@@ -1,5 +1,3 @@
-#include "Constants.hh"
-
 #include "DetectorConstruction.hh"
 #include "DetectorMessenger.hh"
 #include "GeSD.hh"
@@ -25,6 +23,8 @@
 #include "G4VPhysicalVolume.hh"
 #include "G4SDManager.hh"
 #include "G4UserLimits.hh"
+
+#include "Constants.hh"
 
 // public methods
 DetectorConstruction::DetectorConstruction()

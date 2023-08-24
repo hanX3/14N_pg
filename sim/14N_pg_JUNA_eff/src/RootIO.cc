@@ -14,6 +14,7 @@
 #include "TFile.h"
 #include "TTree.h"
 
+#include "Constants.hh"
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 RootIO::RootIO(G4int saveFlag)
@@ -86,8 +87,8 @@ void RootIO::OpenEnergyFile(G4String pn, G4double e, G4long n)
     ss.str("");
 
     //energy file
-    if(n<1000) ss << "../data/" << nfdate << "_" << pn << "_" << e << "keV_" << n << ".root";
-    else ss << "../data/" << nfdate << "_" << pn << "_" << e << "keV_" << n/1000 << "k.root";
+    if(n<1000) ss << FILEPATH << nfdate << "_" << pn << "_" << e << "keV_" << n << ".root";
+    else ss << FILEPATH << nfdate << "_" << pn << "_" << e << "keV_" << n/1000 << "k.root";
     
     G4cout << "energy file " << ss.str() << G4endl;
     energyFile = new TFile(ss.str().c_str(), "RECREATE");

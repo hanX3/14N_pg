@@ -2,7 +2,6 @@
 #include "ActionInitialization.hh"
 #include "PhysicsList.hh"
 
-//#include "G4RunManager.hh"
 #include "G4RunManagerFactory.hh"
 
 #include "G4UImanager.hh"
@@ -17,6 +16,8 @@
 #include "sys/stat.h" //  mkdir
 
 #include "TROOT.h"
+#include "Constants.hh"
+
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 int main(int argc,char** argv)
@@ -25,7 +26,7 @@ int main(int argc,char** argv)
 
   //  creat file
   G4int saveFlag = 1;
-  mkdir("../data", 0777);
+  mkdir(FILEPATH, 0777);
 
   // Detect interactive mode (if no arguments) and define UI session
   G4UIExecutive* ui = 0;

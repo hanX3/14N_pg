@@ -4,6 +4,7 @@
 #include "globals.hh"
 #include "G4SystemOfUnits.hh"
 
+#define FILEPATH "./data/"
 
 constexpr G4double worldSizeX = 2. *m;
 constexpr G4double worldSizeY = 2. *m;
@@ -77,12 +78,6 @@ constexpr G4double Surround2Dis = GePosDis - GeHeight + Surround2Length - 2.*Fac
 constexpr G4double BeamAngle = 0.;
 constexpr G4double BeamSize = 5 *mm;//r
 constexpr G4double ParticleEnergy = 7556. *keV;
-
-//resolution
-constexpr G4double Energy1 = 1764.5;
-constexpr G4double Sigma1 = 1.276;
-constexpr G4double Energy2 = 2204.2;
-constexpr G4double Sigma2 = 1.41;
 
 //step limit
 constexpr G4double MaxStepLimit = 10 *um;
