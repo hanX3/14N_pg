@@ -9,11 +9,12 @@ void tr2hist(TString str, Int_t energy, Double_t sigma)
     return;
   }
 
-  TString sigma_str = std::to_string(sigma);
-  sigma_str.ReplaceAll(".", "-");
-  cout << sigma_str << endl;
+  int a = str.Last('/');
+  int b = str.Last('.');
+  TString sub = str(a+1, b-a-1);
+  cout << "sub " << sub << endl;
 
-  TFile *fo = new TFile(TString::Format("./mc_%dkeV_sigma%s.root", energy, sigma_str.Data()).Data(), "recreate");
+  TFile *fo = new TFile(TString::Format("./mc_%s.root",  sub.Data()).Data(), "recreate");
 
   TTree *tr2 = (TTree*)fi->Get("tree");
   double energy0;

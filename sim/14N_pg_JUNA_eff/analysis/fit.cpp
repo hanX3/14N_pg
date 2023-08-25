@@ -1,6 +1,8 @@
 
-void fit(TString filename)
+void fit(int dis)
 {
+  TString filename = TString::Format("./dis_%dmm/area_energy.txt", dis);
+
   ifstream fi;
   fi.open(filename.Data());
   if(!fi){
@@ -126,7 +128,7 @@ void fit(TString filename)
   }
 
   ofstream fo1;
-  fo1.open("y1y2.txt");
+  fo1.open(TString::Format("./dis_%dmm/y1y2.txt", dis).Data());
 
   for(int i=0;i<6;i++){
     cout << "area " << ee[i] << " " << y1[i] << " after summing " << y2[i] << endl;
@@ -135,7 +137,7 @@ void fit(TString filename)
   fo1.close();
 
   ofstream fo2;
-  fo2.open("eff.txt");
+  fo2.open(TString::Format("./dis_%dmm/eff.txt", dis).Data());
   for(int i=0;i<6;i++){
     fo2 << ee[i] << " " << TMath::Exp(tf1_pol2->Eval(TMath::Log(ee[i]))) << endl;
   }

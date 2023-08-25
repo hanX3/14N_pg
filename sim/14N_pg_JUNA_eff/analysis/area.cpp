@@ -38,7 +38,7 @@ void area_single(TString filename, double &s, double &ss)
   // cout << q << endl;
   TString sub_e = filename(p+2, q-p-5);
   int energy = sub_e.Atoi();
-  //cout << "energy " << energy << endl;
+  cout << "energy " << energy << endl;
 
   TFile *f = TFile::Open(filename.Data());
   if(!f){
@@ -46,11 +46,9 @@ void area_single(TString filename, double &s, double &ss)
     return;
   }
 
-  TH1D *h = new TH1D("h", "", 20000, 0, 20000);
-  TTree *tr = (TTree*)f->Get("tree");
+  TH1D *h = (TH1D*)f->Get(TString::Format("h_sim_%dkeV", energy).Data());
   auto c = new TCanvas();
-  tr->Draw("energy0>>h", "energy0>10");
-  ss = h->Integral(10, 20000);
+  ss = h->Integral(10, 16382);
     
   // cout << "fit range " << energy*0.998 << " to " << energy*1.002 << endl;
 
@@ -120,11 +118,9 @@ void area3_single(TString filename, double &s, double &ss)
     return;
   }
 
-  TH1D *h = new TH1D("h", "", 20000, 0, 20000);
-  TTree *tr = (TTree*)f->Get("tree");
+  TH1D *h = (TH1D*)f->Get(TString::Format("h_sim_%dkeV", energy).Data());
   auto c = new TCanvas();
-  tr->Draw("energy0>>h", "energy0>10");
-  ss = h->Integral(10, 20000);
+  ss = h->Integral(10, 16382);
   
   for(int i=0;i<3;i++){
     cout << "fit range " << energy*0.998 << " to " << energy*1.002 << endl;
@@ -173,30 +169,21 @@ void area3_single(TString filename, double &s, double &ss)
 }
 
 //
-void area()
+void area(int dis)
 {
   gROOT->SetBatch(1);
   vector<TString> v_filename;
   
-  ifstream fi;
-  fi.open(TString::Format("filename.txt").Data());
-  if(!fi){
-    cout << "can not open the file" << endl;
-    return;
-  }
-
-
   TString filename;
-  while(1){
-    fi >> filename;
-    if(!fi.good()) break;
+  for(int energy=1000;energy<=12500;energy+=500){
+    filename = TString::Format("./dis_%dmm/hist/mc_dis_%dmm_gamma_%dkeV_10000k.root", dis, dis, energy);
 
     // cout << filename << endl;
     v_filename.push_back(filename);
   }
 
   ofstream fo;
-  fo.open(TString::Format("area_energy.txt"));
+  fo.open(TString::Format("./dis_%dmm/area_energy.txt", dis));
 
   double s = 0.;
   double ss = 0.;
@@ -249,30 +236,22 @@ void area()
 }
 
 //
-void area3()
+void area3(int dis)
 {
   gROOT->SetBatch(1);
 
   vector<TString> v_filename;
   
-  ifstream fi;
-  fi.open(TString::Format("filename.txt").Data());
-  if(!fi){
-    cout << "can not open the file" << endl;
-    return;
-  }
-
   TString filename;
-  while(1){
-    fi >> filename;
-    if(!fi.good()) break;
+  for(int energy=1000;energy<=12500;energy+=500){
+    filename = TString::Format("./dis_%dmm/hist/mc_dis_%dmm_gamma_%dkeV_10000k.root", dis, dis, energy);
 
     // cout << filename << endl;
     v_filename.push_back(filename);
   }
 
   ofstream fo;
-  fo.open(TString::Format("area3_energy.txt"));
+  fo.open(TString::Format("./dis_%dmm/area3_energy.txt", dis));
 
   double s = 0.;
   double ss = 0.; 
