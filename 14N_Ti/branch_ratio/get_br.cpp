@@ -1,12 +1,16 @@
 
-void get_br_g4()
+void get_br()
 {
   //
   // {7556, 6859, 6792, 6172, 5240, 5181}
   double area[6] = {215.017, 0., 3083.73, 8366.74, 0., 2902.79};
 
   ifstream fi1;
-  fi1.open("../../sim/14N_pg_JUNA_eff/analysis/y1y2.txt");
+  fi1.open("../../sim/14N_pg_JUNA_eff/analysis/dis_140mm/y1y2.txt");
+  if(!fi1){
+    cout << "can not open y1y2.txt" << endl;
+    return;
+  }
   
   double e[6];
   double y1[6];
@@ -27,7 +31,12 @@ void get_br_g4()
   
   //
   ifstream fi2;
-  fi2.open("../../sim/14N_pg_JUNA_eff/analysis/eff.txt");
+  fi2.open("../../sim/14N_pg_JUNA_eff/analysis/dis_140mm/eff.txt");
+  if(!fi2){
+    cout << "can not open eff.txt" << endl;
+    return;
+  }
+
   double eff[6];
   i = 0;
   while(1){
