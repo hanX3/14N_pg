@@ -1,3 +1,3 @@
 #
 
-* draw2.cpp --> draw two histogram together.
+* draw2.cpp --> draw two histogram together

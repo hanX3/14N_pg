@@ -76,7 +76,7 @@ void raw2root_special(TString target, TString energy)
     h->SetBinContent(i+1, c);
   }
 
-  TFile *file_out = new TFile(TString::Format("%s_%skeV_2.root", target.Data(), energy.Data()).Data(), "recreate");
+  TFile *file_out = new TFile(TString::Format("./rootfile/%s_%skeV_2.root", target.Data(), energy.Data()).Data(), "recreate");
   file_out->cd();
   h->Write();
   tr->Write();
