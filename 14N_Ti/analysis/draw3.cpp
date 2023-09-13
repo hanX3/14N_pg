@@ -1,5 +1,5 @@
 
-void R_energy()
+void draw3()
 {
   gStyle->SetOptStat(0);
 
